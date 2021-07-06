@@ -1,0 +1,33 @@
+version: "3.9"
+services:
+  user-service-1:
+    container_name: user_service_1
+    build:
+      context: Services/
+      dockerfile: Dockerfile
+    environment:
+      - NAME=user-service-1
+
+  user-service-2:
+    container_name: user_service_2
+    build:
+      context: Services/
+      dockerfile: Dockerfile
+    environment:
+      - NAME=user-service-2
+
+  todolist-service:
+    container_name: todolist_service
+    build:
+      context: Services/
+      dockerfile: Dockerfile
+    environment:
+      - NAME=todolist-service
+
+  haproxy:
+    container_name: haproxy
+    build:
+      context: HAPROXY/
+      dockerfile: Dockerfile
+    ports:
+    - 80:80
